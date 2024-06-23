@@ -1,11 +1,12 @@
+import { createBrowserRouter } from 'react-router-dom';
+
 import Landing from './screens/landing/Landing';
 
-const App = () => {
-	return (
-		<>
-			<Landing />
-		</>
-	);
-};
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Landing />,
+	},
+]);
 
-export default App;
+export default router;
