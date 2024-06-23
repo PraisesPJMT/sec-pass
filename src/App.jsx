@@ -1,9 +1,9 @@
-import './App.css';
+import Landing from './screens/landing/Landing';
 
 const App = () => {
 	return (
 		<>
-			<h1>PassGuard</h1>
+			<Landing />
 		</>
 	);
 };
