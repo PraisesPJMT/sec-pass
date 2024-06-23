@@ -1,0 +1,58 @@
+@import '../../index.css';
+
+main#landing {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+#landing #logo {
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+#landing #logo svg.ring {
+	width: 100%;
+	height: fit-content;
+	animation: rotate 10s linear infinite;
+}
+
+#landing svg.logo {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#landing #logo > svg path {
+	fill: var(--dark-color);
+}
+
+#landing .logo circle,
+#landing .logo path {
+	stroke: var(--dark-color);
+}
+
+#landing h1 {
+	font-weight: 800;
+	color: var(--dark-color);
+}
+
+#landing h1 span {
+	color: var(--secondary-color);
+	font-style: oblique;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
