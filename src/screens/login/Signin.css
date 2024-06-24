@@ -1,0 +1,84 @@
+@import '../../index.css';
+
+#signin h1 {
+	font-weight: 800;
+	color: var(--dark-color);
+}
+
+#signin h1 span {
+	color: var(--secondary-color);
+	font-style: oblique;
+}
+
+#signin-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+	width: 100%;
+}
+
+#signin-form label {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: auto;
+	padding: 0.1rem 0;
+	border-bottom: 4px solid var(--tertiary-color);
+}
+
+#signin-form label span {
+	font-weight: 600;
+	font-size: 1rem;
+	color: var(--dark-color);
+	margin: 0.5rem auto;
+}
+
+#signin-form label input {
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.3rem 0.5rem;
+	color: var(--dark-color);
+	background: var(--tertiary-light-color);
+	border: 2px solid var(--tertiary-color);
+	outline: none;
+}
+
+#signin-form label input[type='password']::-ms-reveal,
+#signin-form label input[type='password']::-ms-clear {
+	display: none;
+}
+
+#signin-form label input:focus {
+	background: var(--tertiary-color);
+	outline: none;
+}
+
+#signin-form label div {
+	display: flex;
+	align-items: center;
+}
+
+#signin-form label div button {
+	padding: 0.23rem;
+	background: var(--tertiary-color);
+	border: 2px solid var(--tertiary-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#signin-form label div button svg {
+	width: 20px;
+	height: 20px;
+}
+
+#signin-form .error-msg {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9rem;
+	padding: 0.2rem;
+	margin: 0;
+	color: red;
+}
