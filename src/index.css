@@ -10,6 +10,7 @@
 
 	--dark-color: #17252a;
 	--tertiary-color: #2b787a;
+	--tertiary-light-color: #2b787a99;
 	--primary-color: #3aafa9;
 	--secondary-color: #def2f1;
 	--light-color: #feffff;
@@ -35,14 +36,20 @@ button {
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .primary-btn {
-	padding: 1rem;
+	padding: 0.8rem 1rem;
 	background: var(--dark-color);
 	color: var(--secondary-color);
 	border-radius: 40px;
 	font-weight: 600;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
 }

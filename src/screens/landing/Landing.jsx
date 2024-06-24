@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+
 import Logo from '../../assets/Logo';
 import SettingsRing from '../../assets/SettingsRing';
+
 import './Landing.css';
 
 const Landing = () => {
+	const navigate = useNavigate();
+
 	return (
 		<main id='landing'>
 			<div id='logo'>
@@ -13,7 +18,11 @@ const Landing = () => {
 				Pass<span>Guard</span>
 			</h1>
 
-			<button type='button' className='primary-btn'>
+			<button
+				type='button'
+				className='primary-btn'
+				onClick={() => navigate('/signin')}
+			>
 				ACCOUNT SIGNIN
 			</button>
 		</main>
