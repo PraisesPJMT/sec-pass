@@ -9,6 +9,7 @@
 	-moz-osx-font-smoothing: grayscale;
 
 	--dark-color: #17252a;
+	--dark-light-color: #17252acc;
 	--tertiary-color: #2b787a;
 	--tertiary-light-color: #2b787a99;
 	--primary-color: #3aafa9;
@@ -20,8 +21,8 @@ body {
 	margin: 0;
 	display: flex;
 	place-items: center;
-	width: 450px;
-	height: 500px;
+	width: 500px;
+	height: 520px;
 	border: 1px solid var(--dark-color);
 	background: var(--primary-color);
 }
@@ -40,12 +41,21 @@ button {
 	height: 100%;
 }
 
-.primary-btn {
+.primary-btn,
+.secondary-btn {
 	padding: 0.8rem 1rem;
-	background: var(--dark-color);
-	color: var(--secondary-color);
 	border-radius: 40px;
 	font-weight: 600;
+}
+
+.primary-btn {
+	background: var(--dark-color);
+	color: var(--secondary-color);
+}
+
+.secondary-btn {
+	background: var(--dark-light-color);
+	color: var(--primary-color);
 }
 
 @keyframes rotate {

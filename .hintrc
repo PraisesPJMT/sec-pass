@@ -8,7 +8,8 @@
       {
         "ignore": [
           "font-synthesis",
-          "height: fit-content"
+          "height: fit-content",
+          "width: fit-content"
         ]
       }
     ]
