@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { INITIAL_DATA } from '../utils/constants';
 
 const useGuard = () => {
-	const [account, setAccount] = useState({
-		isSignin: false,
-		pass: 'passguard',
-		data: [],
-	});
+	let account = JSON.parse(localStorage.getItem('PASS_GUARD')) || INITIAL_DATA;
+
+	const storeData = () =>
+		localStorage.setItem('PASS_GUARD', JSON.stringify(account));
 
 	const signin = (pass) => {
 		if (pass === account.pass) {
-			setAccount((prev) => ({ ...prev, isSignin: true }));
+			account = { ...account, isSignin: true };
+			storeData();
 			return true;
 		}
 
@@ -17,11 +17,17 @@ const useGuard = () => {
 	};
 
 	const signout = () => {
-		setAccount((prev) => ({ ...prev, isSignin: false }));
+		account = { ...account, isSignin: false };
+		storeData();
 		return true;
 	};
 
-	return { isSignin: account.isSignin, signin, signout };
+	return {
+		isSignin: account.isSignin,
+		accounts: account.data,
+		signin,
+		signout,
+	};
 };
 
 export default useGuard;

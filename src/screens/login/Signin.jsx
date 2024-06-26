@@ -24,6 +24,8 @@ const Login = () => {
 		if (pass.length > 0) {
 			const status = signin(pass);
 
+			console.log('Status: ', status);
+
 			if (status) {
 				setErrMsg('');
 				navigate('/');
@@ -59,6 +61,7 @@ const Login = () => {
 								value={pass}
 								onChange={handleChange}
 								required
+								autoFocus
 							/>
 							<button
 								type='button'
