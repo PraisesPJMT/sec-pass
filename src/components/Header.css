@@ -1,0 +1,138 @@
+@import '../index.css';
+
+#dashboard {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: 100%;
+}
+
+#dashboard .header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	background: var(--tertiary-color);
+	margin: 0;
+	position: relative;
+	border-bottom: 2px solid var(--dark-color);
+	box-shadow: 0 1px 4px var(--secondary-color);
+}
+
+#dashboard .header > button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--primary-color);
+	padding: 0.2rem;
+	border-radius: 0.3rem;
+	margin: 0.4rem;
+	width: 30px;
+	height: 30px;
+}
+
+#dashboard .header > button svg {
+	width: 80%;
+	height: 80%;
+}
+
+#dashboard .header > button svg g {
+	fill: var(--dark-color);
+}
+
+#dashboard .header label {
+	display: grid;
+	grid-template-columns: 30px 1fr 30px;
+	align-items: center;
+	border: 2px solid var(--dark-color);
+	width: 100%;
+	margin: 0.4rem;
+	padding: 0.2rem;
+	border-radius: 0.25rem;
+}
+
+#dashboard .header label.focus {
+	box-shadow: 0 0 10px rgba(58, 175, 169, 1);
+}
+
+#dashboard .header label input {
+	width: full;
+	font-size: 1rem;
+	padding: 0.3rem 0.5rem;
+	color: var(--dark-color);
+	background: none;
+	border: none;
+	outline: none;
+}
+
+#dashboard .header label input::placeholder {
+	color: var(--dark-color);
+}
+
+#dashboard .header label button {
+	border-radius: 50%;
+	background: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#dashboard .header label span {
+	display: flex;
+	align-items: center;
+}
+
+#dashboard .header label span svg,
+#dashboard .header label button svg {
+	width: 25px;
+	height: 25px;
+}
+
+#dashboard .header label span svg,
+#dashboard .header label button svg {
+	fill: var(--dark-color);
+}
+
+#dashboard .header .menu {
+	position: absolute;
+	bottom: -102px;
+	left: -100vw;
+	width: 150px;
+
+	background: var(--tertiary-color);
+	padding: 0.8rem 0.5rem;
+	border-radius: 0.3rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+#dashboard .header .menu.open {
+	left: 2px;
+	border:  1px solid var(--dark-light-color);
+}
+
+#dashboard .header .menu > button {
+	background: none;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+}
+
+#dashboard .header .menu > button:hover {
+	background: var(--primary-color);
+}
+
+#dashboard .header .menu > button svg {
+	width: 15px;
+	height: 15px;
+}
+
+#dashboard .header .menu > button.signout svg {
+	transform: rotate(-90deg);
+	width: 20px;
+	height: 20px;
+}
