@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 
-import Logo from '../../assets/Logo';
-import SettingsRing from '../../assets/SettingsRing';
+import Logo from '../assets/svgs/Logo';
+import SettingsRing from '../assets/svgs/SettingsRing';
 
-import './Landing.css';
+import '../assets/styles/Landing.css';
 
 const Landing = () => {
 	const navigate = useNavigate();

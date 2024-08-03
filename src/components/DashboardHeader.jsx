@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
-import Menu from '../assets/Menu';
-import Close from '../assets/Close';
-import Search from '../assets/Search';
+import Menu from '../assets/svgs/Menu';
 import useGuard from '../hook/useGuard';
-import Download from '../assets/Download';
-import SettingsRing from '../assets/SettingsRing';
+import Close from '../assets/svgs/Close';
+import Search from '../assets//svgs/Search';
+import Download from '../assets/svgs/Download';
+import SettingsRing from '../assets/svgs/SettingsRing';
 
-import './Header.css';
+import '../assets/styles/DashboardHeader.css';
 
-const Header = () => {
+const DashboardHeader = () => {
 	const [passSearch, setPassSearch] = useState('');
 	const [open, setOpen] = useState(false);
 	const [searchFocus, setSearchFocus] = useState(false);
@@ -100,4 +100,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default DashboardHeader;

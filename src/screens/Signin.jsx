@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Logo from '../../assets/Logo';
-import Show from '../../assets/Show';
-import Hide from '../../assets/Hide';
-import useGuard from '../../hook/useGuard';
-import SettingsRing from '../../assets/SettingsRing';
+import Logo from '../assets/svgs/Logo';
+import Show from '../assets/svgs/Show';
+import Hide from '../assets/svgs/Hide';
+import useGuard from '../hook/useGuard';
+import SettingsRing from '../assets/svgs/SettingsRing';
 
-import './Signin.css';
+import '../assets/styles/Signin.css';
 
 const Login = () => {
 	const [pass, setPass] = useState('');

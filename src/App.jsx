@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Signin from './screens/login/Signin';
-import Landing from './screens/landing/Landing';
-import Dashboard from './screens/dashboard/Dashboard';
+import Signin from './screens/Signin';
+import Landing from './screens/Landing';
+import Settings from './screens/Settings';
+import Dashboard from './screens/Dashboard';
 
 const router = createBrowserRouter([
 	{
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
 	{
 		path: 'start',
 		element: <Landing />,
+	},
+	{
+		path: 'settings',
+		element: <Settings />,
 	},
 ]);
 
