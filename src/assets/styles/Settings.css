@@ -1,0 +1,235 @@
+@import '../../index.css';
+
+#settings {
+	display: grid;
+	padding: 0;
+	grid-template-areas:
+		'header header'
+		'aside main';
+	grid-template-rows: 50px 1fr;
+	grid-template-columns: 1fr 1.6fr;
+	height: 100%;
+	width: 100%;
+}
+
+#settings header {
+	grid-area: header;
+}
+
+#settings aside {
+	grid-area: aside;
+
+	border-radius: 0.3rem;
+	padding: 0.5rem;
+	overflow: auto;
+	background: var(--tertiary-color);
+	overflow-y: auto;
+}
+
+#settings main {
+	grid-area: main;
+}
+
+#settings aside .account {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	background: none;
+	width: 100%;
+}
+
+#settings aside .account:hover,
+#settings aside .account.active {
+	background: var(--primary-color);
+}
+
+#settings aside .account .wrap-logo {
+	background: var(--primary-color);
+	border-radius: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.2rem;
+}
+
+#settings .wrap {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#settings .wrap .wrap-logo {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	border-radius: 50%;
+	margin-top: 1rem;
+}
+
+#settings .wrap .wrap-logo svg.ring {
+	width: 100%;
+	height: 100%;
+	animation: rotate 10s linear infinite;
+}
+
+#settings .wrap svg.wrap-logo {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#settings .wrap .wrap-logo > svg path {
+	fill: var(--dark-color);
+}
+
+#settings .wrap .wrap-logo circle,
+#settings .wrap .wrap-logo path {
+	stroke: var(--dark-color);
+}
+
+#settings .wrap h1 {
+	font-weight: 800;
+	color: var(--dark-color);
+	padding: 0;
+	margin: 0;
+}
+
+#settings .wrap h1 span {
+	color: var(--secondary-color);
+	font-style: oblique;
+}
+
+#settings .wrap .sec {
+	width: 100%;
+	max-width: 230px;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	border: 1px solid var(--tertiary-color);
+	padding: 0.4rem;
+	border-radius: 0.4rem;
+}
+
+#settings .wrap .sec.col {
+	flex-direction: column;
+	gap: 0.1rem;
+}
+
+#settings .wrap .sec .sub-sec {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+#settings .wrap .sec hr {
+	width: 100%;
+	height: 1px;
+	border: none;
+	background: var(--tertiary-light-color);
+}
+
+#settings .wrap .sec .icon {
+	padding: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#settings .wrap .sec .icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+#settings .wrap .sec .icon svg g {
+	fill: var(--dark-light-color);
+}
+
+#settings .wrap .sec .desc {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	position: relative;
+	width: 100%;
+}
+
+#settings .wrap .sec .desc p {
+	padding: 0 0.2rem;
+	margin: 0;
+	font-size: 0.8rem;
+}
+
+#settings .wrap .sec .desc p.label {
+	color: var(--tertiary-color);
+}
+
+#settings .wrap .sec .desc p.det {
+	color: var(--dark-light-color);
+}
+
+#settings .wrap .sec .desc input {
+	width: 130px;
+	border: 1px solid var(--dark-color);
+	background: var(--tertiary-light-color);
+	padding: 0.2rem 0.3rem;
+	border-radius: 0.3rem;
+	font-size: 1.1rem;
+}
+
+#settings .wrap .sec .desc > button {
+	position: absolute;
+	top: calc(50% - 15px);
+	right: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 0.4rem;
+	padding: 0.3rem;
+	background: var(--dark-light-color);
+}
+
+#settings .wrap .sec .desc > button svg {
+	width: 100%;
+	height: 100%;
+}
+
+#settings .wrap .sec .desc > button svg g {
+	fill: var(--primary-color);
+}
+
+#settings .wrap .btn-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+#settings .wrap .errorMsg {
+	color: red;
+	text-align: center;
+	margin: 0;
+	padding: 0.2rem;
+	font-size: 0.8rem;
+	background-color: #999c;
+	width: 80%;
+}
+
+#settings .wrap .success {
+	color: green;
+	text-align: center;
+	margin: 0;
+	padding: 0.2rem;
+	font-size: 0.8rem;
+	background-color: #999c;
+	width: 80%;
+}

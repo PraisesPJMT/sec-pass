@@ -42,7 +42,8 @@ button {
 }
 
 .primary-btn,
-.secondary-btn {
+.secondary-btn,
+.tertiary-btn {
 	padding: 0.8rem 1rem;
 	border-radius: 40px;
 	font-weight: 600;
@@ -56,6 +57,18 @@ button {
 .secondary-btn {
 	background: var(--dark-light-color);
 	color: var(--primary-color);
+}
+
+.tertiary-btn {
+	background: var(--primary-color);
+	color: var(--dark-light-color);
+	border: 2px solid var(--dark-light-color);
+}
+
+.tertiary-btn:hover {
+	background: var(--primary-color);
+	color: var(--dark-color);
+	border: 2px solid var(--dark-color);
 }
 
 @keyframes rotate {

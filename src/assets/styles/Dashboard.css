@@ -1,14 +1,38 @@
 @import '../../index.css';
 
-#dashboard .main {
+#dashboard {
 	display: grid;
+	padding: 0;
+	grid-template-areas:
+		'header header'
+		'aside main';
+	grid-template-rows: 50px 1fr;
 	grid-template-columns: 1fr 1.6fr;
-	padding: 0.2rem;
-	width: 100%;
 	height: 100%;
+	width: 100%;
 }
 
-#dashboard .main aside {
+#dashboard header {
+	grid-area: header;
+}
+
+#dashboard aside {
+	grid-area: aside;
+
+	background: var(--tertiary-color);
+}
+
+#dashboard main {
+	grid-area: main;
+}
+
+#dashboard main {
+	display: flex;
+	flex-direction: column;
+	padding: 0.2rem;
+}
+
+#dashboard aside {
 	border-radius: 0.3rem;
 	padding: 0.5rem;
 	overflow: auto;
@@ -16,7 +40,7 @@
 	overflow-y: auto;
 }
 
-#dashboard .main aside .account {
+#dashboard aside .account {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
@@ -28,12 +52,12 @@
 	width: 100%;
 }
 
-#dashboard .main aside .account:hover,
-#dashboard .main aside .account.active {
+#dashboard aside .account:hover,
+#dashboard aside .account.active {
 	background: var(--primary-color);
 }
 
-#dashboard .main aside .account .logo {
+#dashboard aside .account .logo {
 	background: var(--primary-color);
 	border-radius: 0.4rem;
 	display: flex;
@@ -42,13 +66,13 @@
 	padding: 0.2rem;
 }
 
-#dashboard .main aside .account .logo svg {
+.account .logo svg {
 	width: 20px;
 	height: 20px;
 	fill: var(--tertiary-color);
 }
 
-#dashboard .main aside .account .details {
+#dashboard aside .account .details {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -56,23 +80,23 @@
 	color: var(--dark-color);
 }
 
-#dashboard .main aside .account .details .title {
+#dashboard aside .account .details .title {
 	font-size: 0.8rem;
 	font-weight: 600;
 }
 
-#dashboard .main aside .account .details span {
+#dashboard aside .account .details span {
 	font-size: 0.6rem;
 	overflow-x: none;
 }
 
-#dashboard .main main {
+#dashboard main {
 	border-radius: 0.3rem;
 	padding: 0.5rem;
 	overflow: auto;
 }
 
-#dashboard .main main h2 {
+#dashboard main h2 {
 	font-size: 0.8rem;
 	width: 100%;
 	white-space: nowrap;
@@ -80,7 +104,7 @@
 	text-overflow: ellipsis;
 }
 
-#dashboard .main main > .header {
+#dashboard main > .header {
 	display: flex;
 	align-items: center;
 	gap: 0.2rem;
@@ -89,29 +113,29 @@
 	border: none;
 }
 
-#dashboard .main main .header button {
+#dashboard main .header button {
 	width: fit-content;
 	background: var(--dark-light-color);
 	padding: 0.2rem 0.4rem;
 }
 
-#dashboard .main main .header button svg {
+#dashboard main .header button svg {
 	width: 20px;
 	height: 20px;
 }
 
-#dashboard .main main .header button svg g {
+#dashboard main .header button svg g {
 	fill: var(--primary-color);
 }
 
-#dashboard .main main .body {
+#dashboard main .body {
 	padding: 0.5rem 0.3rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.8rem;
 }
 
-#dashboard .main main .body .sec {
+#dashboard main .body .sec {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
@@ -120,42 +144,42 @@
 	border-radius: 0.4rem;
 }
 
-#dashboard .main main .body .sec.col {
+#dashboard main .body .sec.col {
 	flex-direction: column;
 	gap: 0.1rem;
 }
 
-#dashboard .main main .body .sec .sub-sec {
+#dashboard main .body .sec .sub-sec {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 	width: 100%;
 }
 
-#dashboard .main main .body .sec hr {
+#dashboard main .body .sec hr {
 	width: 100%;
 	height: 1px;
 	border: none;
 	background: var(--tertiary-light-color);
 }
 
-#dashboard .main main .body .sec .icon {
+#dashboard main .body .sec .icon {
 	padding: 0.4rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-#dashboard .main main .body .sec .icon svg {
+#dashboard main .body .sec .icon svg {
 	width: 20px;
 	height: 20px;
 }
 
-#dashboard .main main .body .sec .icon svg g {
+#dashboard main .body .sec .icon svg g {
 	fill: var(--dark-light-color);
 }
 
-#dashboard .main main .body .sec .desc {
+#dashboard main .body .sec .desc {
 	display: flex;
 	flex-direction: column;
 	gap: 0.2rem;
@@ -163,21 +187,21 @@
 	width: 100%;
 }
 
-#dashboard .main main .body .sec .desc p {
+#dashboard main .body .sec .desc p {
 	padding: 0 0.2rem;
 	margin: 0;
 	font-size: 0.8rem;
 }
 
-#dashboard .main main .body .sec .desc p.label {
+#dashboard main .body .sec .desc p.label {
 	color: var(--tertiary-color);
 }
 
-#dashboard .main main .body .sec .desc p.det {
+#dashboard main .body .sec .desc p.det {
 	color: var(--dark-light-color);
 }
 
-#dashboard .main main .body .sec .desc > button {
+#dashboard main .body .sec .desc > button {
 	position: absolute;
 	top: calc(50% - 15px);
 	right: 0;
@@ -188,11 +212,11 @@
 	background: var(--dark-light-color);
 }
 
-#dashboard .main main .body .sec .desc > button svg {
+#dashboard main .body .sec .desc > button svg {
 	width: 100%;
 	height: 100%;
 }
 
-#dashboard .main main .body .sec .desc > button svg g {
+#dashboard main .body .sec .desc > button svg g {
 	fill: var(--primary-color);
 }
