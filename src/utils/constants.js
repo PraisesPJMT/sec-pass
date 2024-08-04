@@ -1,6 +1,10 @@
 export const INITIAL_DATA = {
 	isSignin: false,
 	pass: 'passguard',
+	time: {
+		lastSession: new Date(),
+		currentSession: new Date(),
+	},
 	data: [
 		{
 			id: 1,
