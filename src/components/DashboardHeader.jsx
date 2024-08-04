@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
-import Menu from '../assets/Menu';
-import Close from '../assets/Close';
-import Search from '../assets/Search';
+import Logo from '../assets/svgs/Logo';
+import Menu from '../assets/svgs/Menu';
 import useGuard from '../hook/useGuard';
-import Download from '../assets/Download';
-import SettingsRing from '../assets/SettingsRing';
+import Close from '../assets/svgs/Close';
+import Search from '../assets//svgs/Search';
+import Download from '../assets/svgs/Download';
+import SettingsRing from '../assets/svgs/SettingsRing';
 
-import './Header.css';
+import '../assets/styles/DashboardHeader.css';
 
-const Header = () => {
+const DashboardHeader = () => {
 	const [passSearch, setPassSearch] = useState('');
 	const [open, setOpen] = useState(false);
 	const [searchFocus, setSearchFocus] = useState(false);
@@ -45,7 +46,7 @@ const Header = () => {
 		};
 	}, []);
 	return (
-		<div className='header'>
+		<header className='header'>
 			<button
 				type='button'
 				aria-label='Menu Button'
@@ -56,7 +57,23 @@ const Header = () => {
 			</button>
 
 			<div className={`menu ${open ? 'open' : ''}`} ref={menuRef}>
-				<button type='button'>
+				<button
+					type='button'
+					onClick={() => {
+						navigate('/');
+						setOpen(false);
+					}}
+				>
+					<Logo />
+					Dashboard
+				</button>
+				<button
+					type='button'
+					onClick={() => {
+						navigate('/settings');
+						setOpen(false);
+					}}
+				>
 					<SettingsRing />
 					Settings
 				</button>
@@ -96,8 +113,8 @@ const Header = () => {
 					<Close />
 				</button>
 			</label>
-		</div>
+		</header>
 	);
 };
 
-export default Header;
+export default DashboardHeader;
