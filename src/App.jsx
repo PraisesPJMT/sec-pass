@@ -4,6 +4,8 @@ import Signin from './screens/Signin';
 import Landing from './screens/Landing';
 import Settings from './screens/Settings';
 import Dashboard from './screens/Dashboard';
+import Session from './components/Session';
+import PinSettings from './components/PinSettings';
 
 const router = createBrowserRouter([
 	{
@@ -21,6 +23,17 @@ const router = createBrowserRouter([
 	{
 		path: 'settings',
 		element: <Settings />,
+		children: [
+			{
+				path: '',
+				element: <PinSettings />,
+				index: true,
+			},
+			{
+				path: 'session',
+				element: <Session />,
+			},
+		],
 	},
 ]);
 

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
+import Logo from '../assets/svgs/Logo';
 import Menu from '../assets/svgs/Menu';
 import useGuard from '../hook/useGuard';
 import Close from '../assets/svgs/Close';
@@ -45,7 +46,7 @@ const DashboardHeader = () => {
 		};
 	}, []);
 	return (
-		<div className='header'>
+		<header className='header'>
 			<button
 				type='button'
 				aria-label='Menu Button'
@@ -56,7 +57,23 @@ const DashboardHeader = () => {
 			</button>
 
 			<div className={`menu ${open ? 'open' : ''}`} ref={menuRef}>
-				<button type='button'>
+				<button
+					type='button'
+					onClick={() => {
+						navigate('/');
+						setOpen(false);
+					}}
+				>
+					<Logo />
+					Dashboard
+				</button>
+				<button
+					type='button'
+					onClick={() => {
+						navigate('/settings');
+						setOpen(false);
+					}}
+				>
 					<SettingsRing />
 					Settings
 				</button>
@@ -96,7 +113,7 @@ const DashboardHeader = () => {
 					<Close />
 				</button>
 			</label>
-		</div>
+		</header>
 	);
 };
 
