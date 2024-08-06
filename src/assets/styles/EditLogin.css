@@ -1,0 +1,183 @@
+@import "../../index.css";
+
+#edit {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 520px;
+    width: 500px;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#edit.open {
+    display: flex;
+}
+
+#edit .edit-wrap {
+    background: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 350px;
+    height: 450px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    color: var(--dark-light-color));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#edit .edit-wrap .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.2rem;
+}
+
+#edit .edit-wrap h2 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#edit .edit-wrap > p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#edit .edit-wrap form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+#edit .edit-wrap .desc {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	position: relative;
+	width: 280px;
+}
+
+#edit .edit-wrap .desc p {
+	padding: 0 0.2rem;
+	margin: 0;
+	font-size: 0.8rem;
+	font-weight: 400;
+	text-align: left;
+}
+
+#edit .edit-wrap .desc p.label {
+	color: var(--tertiary-color);
+}
+
+#edit .edit-wrap .desc p.det {
+	color: var(--dark-light-color);
+}
+
+#edit .edit-wrap .sec {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	border: 1px solid var(--tertiary-color);
+	padding: 0.4rem;
+	border-radius: 0.4rem;
+	width: 290px;
+	margin: 0 auto;
+}
+
+#edit .edit-wrap .sec.col {
+	flex-direction: column;
+	gap: 0.1rem;
+}
+
+#edit .edit-wrap .sec .sub-sec {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: fit-content;
+}
+
+#edit .edit-wrap .sec hr {
+	width: 100%;
+	height: 1px;
+	border: none;
+	background: var(--tertiary-light-color);
+}
+
+#edit .edit-wrap .sec .icon {
+	padding: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#edit .edit-wrap .sec .icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+#edit .edit-wrap .sec .icon.logo svg {
+	stroke: var(--dark-color) !important;
+}
+
+#edit .edit-wrap .sec .icon svg g {
+	fill: var(--dark-light-color);
+}
+
+
+#edit .edit-wrap .desc > button {
+	position: absolute;
+	top: calc(50% - 15px);
+	right: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 0.4rem;
+	padding: 0.3rem;
+	background: var(--dark-light-color);
+}
+
+#edit .edit-wrap .desc > button svg {
+	width: 100%;
+	height: 100%;
+}
+
+#edit .edit-wrap .desc > button svg g {
+	fill: var(--primary-color);
+}
+
+#edit .edit-wrap .sec input {
+    border: 1px solid var(--dark-color);
+	background: var(--tertiary-light-color);
+	padding: 0.2rem 0.3rem;
+	border-radius: 0.3rem;
+	font-size: 1rem;
+    width: fit-content;
+}
+
+#edit .edit-wrap .errorMsg {
+	color: red;
+	text-align: center;
+	margin: 0 auto;
+	padding: 0.2rem;
+	font-size: 0.8rem;
+	background-color: #999c;
+	width: 80%;
+}

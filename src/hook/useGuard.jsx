@@ -61,7 +61,16 @@ const useGuard = () => {
             ...account,
             data: account.data.map((data) => {
                 if (data.id === loginId) {
-                    return login;
+                    return {
+                        id: loginId,
+                        name: login.name,
+                        url: login.url,
+                        username: login.username,
+                        password: login.password,
+                        createdAt: data.createdAt,
+                        lastUsed: data.lastUsed,
+                        lastModified: new Date(),
+                    };
                 }
                 return data;
             }),

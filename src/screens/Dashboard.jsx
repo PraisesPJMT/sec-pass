@@ -12,6 +12,7 @@ import useGuard from "../hook/useGuard";
 import Delete from "../assets/svgs/Delete";
 import Created from "../assets/svgs/Created";
 import Modified from "../assets/svgs/Modified";
+import EditLogin from "../components/EditLogin";
 import DeleteLogin from "../components/DeleteLogin";
 import DashboardHeader from "../components/DashboardHeader";
 
@@ -23,12 +24,17 @@ const Dashboard = () => {
     const [show, setShow] = useState(false);
     const [login, setLogin] = useState(data[0]);
 
+    const [openEdit, setOpenEdit] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
 
-    const handleEdit = () => {};
+    const handleEdit = () => {
+        setOpenEdit(true);
+        setOpenDelete(false);
+    };
 
     const handleDelete = () => {
         setOpenDelete(true);
+        setOpenEdit(false);
     };
 
     return (
@@ -162,6 +168,12 @@ const Dashboard = () => {
                 <DeleteLogin
                     open={openDelete}
                     setOpen={setOpenDelete}
+                    login={login}
+                />
+
+                <EditLogin
+                    open={openEdit}
+                    setOpen={setOpenEdit}
                     login={login}
                 />
             </main>
