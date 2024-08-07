@@ -1,0 +1,70 @@
+@import "../../index.css";
+
+#delete {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 520px;
+    width: 500px;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#delete.open {
+    display: flex;
+}
+
+#delete .delete-wrap {
+    background: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    color: var(--dark-light-color));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#delete .delete-wrap .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#delete .delete-wrap h2 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#delete .delete-wrap p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#delete .delete-wrap .thick {
+    margin: 0 auto;
+}
+
+#delete .delete-wrap .thick svg {
+    width: 100px;
+    height: 100px;
+}

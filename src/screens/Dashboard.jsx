@@ -1,161 +1,216 @@
-import { useState, useMemo } from 'react';
-import { formatDateToCustomString } from '../utils/helpers';
+import { useState, useMemo } from "react";
+import { formatDateToCustomString } from "../utils/helpers";
 
-import Key from '../assets/svgs/Key';
-import Web from '../assets/svgs/Web';
-import User from '../assets/svgs/User';
-import Edit from '../assets/svgs/Edit';
-import Show from '../assets/svgs/Show';
-import Hide from '../assets/svgs/Hide';
-import Used from '../assets/svgs/Used';
-import useGuard from '../hook/useGuard';
-import Delete from '../assets/svgs/Delete';
-import Created from '../assets/svgs/Created';
-import Modified from '../assets/svgs/Modified';
-import DashboardHeader from '../components/DashboardHeader';
+import Key from "../assets/svgs/Key";
+import Web from "../assets/svgs/Web";
+import User from "../assets/svgs/User";
+import Edit from "../assets/svgs/Edit";
+import Show from "../assets/svgs/Show";
+import Hide from "../assets/svgs/Hide";
+import Used from "../assets/svgs/Used";
+import useGuard from "../hook/useGuard";
+import Delete from "../assets/svgs/Delete";
+import Created from "../assets/svgs/Created";
+import AddLogin from "../components/AddLogin";
+import Modified from "../assets/svgs/Modified";
+import EditLogin from "../components/EditLogin";
+import DeleteLogin from "../components/DeleteLogin";
+import DashboardHeader from "../components/DashboardHeader";
 
-import '../assets/styles/Dashboard.css';
+import "../assets/styles/Dashboard.css";
 
 const Dashboard = () => {
-	const { accounts } = useGuard();
-	const data = useMemo(() => [...accounts], [accounts]);
-	const [show, setShow] = useState(false);
-	const [login, setLogin] = useState(data[0]);
+    const { accounts } = useGuard();
+    const data = useMemo(() => [...accounts], [accounts]);
+    const [show, setShow] = useState(false);
+    const [login, setLogin] = useState(data[0]);
 
-	const handleEdit = () => {};
+    const [openAdd, setOpenAdd] = useState(false);
+    const [openEdit, setOpenEdit] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
 
-	const handleDelete = () => {};
+    const handleEdit = () => {
+        setOpenAdd(false);
+        setOpenEdit(true);
+        setOpenDelete(false);
+    };
 
-	return (
-		<div id='dashboard'>
-			<DashboardHeader />
-			<aside>
-				{data.map((account) => (
-					<button
-						key={account.password}
-						className={`account ${
-							account.password === login.password ? 'active' : ''
-						}`}
-						type='button'
-						onClick={() => setLogin(account)}
-					>
-						<div className='logo'>
-							<User />
-						</div>
-						<div className='details'>
-							<span className='title'>{account.name}</span>
-							<span>{account.url}</span>
-						</div>
-					</button>
-				))}
-			</aside>
-			<main>
-				<div className='header'>
-					<h2>{login.url}</h2>
-					<button
-						type='button'
-						className='secondary-btn'
-						onClick={handleEdit}
-					>
-						<Edit />
-						Edit
-					</button>
-					<button
-						type='button'
-						className='secondary-btn'
-						onClick={handleDelete}
-					>
-						<Delete />
-						Delete
-					</button>
-				</div>
-				<div className='body'>
-					<div className='sec'>
-						<div className='icon'>
-							<User />
-						</div>
-						<div className='desc'>
-							<p className='label'>Username</p>
-							<p className='det'>{login.username}</p>
-						</div>
-					</div>
+    const handleDelete = () => {
+        setOpenAdd(false);
+        setOpenEdit(false);
+        setOpenDelete(true);
+    };
 
-					<div className='sec'>
-						<div className='icon'>
-							<Key />
-						</div>
-						<div className='desc'>
-							<p className='label'>Password</p>
-							<p className='det'>
-								{show ? login.password : '*************'}
-							</p>
-							<button
-								type='button'
-								className='secondary-btn'
-								onClick={() => setShow(!show)}
-							>
-								{!show ? <Show /> : <Hide />}
-							</button>
-						</div>
-					</div>
+    const handleAdd = () => {
+        setOpenAdd(true);
+        setOpenEdit(false);
+        setOpenDelete(false);
+    };
 
-					<div className='sec'>
-						<div className='icon'>
-							<Web />
-						</div>
-						<div className='desc'>
-							<p className='label'>Website</p>
-							<p className='det'>{login.url}</p>
-						</div>
-					</div>
+    const handleUpdate = (edit = null) => {
+        if (edit) {
+            data.forEach((item) => {
+                if (item.id === edit.id) {
+                    setLogin(item);
+                }
+            });
 
-					<div className='sec col'>
-						<div className='sub-sec'>
-							<div className='icon'>
-								<Used />
-							</div>
-							<div className='desc'>
-								<p className='label'>Last autofilled</p>
-								<p className='det'>
-									{login.lastUsed
-										? formatDateToCustomString(
-												login.lastUsed
-										  )
-										: 'Never'}
-								</p>
-							</div>
-						</div>
-						<hr />
-						<div className='sub-sec'>
-							<div className='icon'>
-								<Modified />
-							</div>
-							<div className='desc'>
-								<p className='label'>Last modified</p>
-								<p className='det'>
-									{formatDateToCustomString(
-										login.lastModified
-									)}
-								</p>
-							</div>
-						</div>
-						<hr />
-						<div className='sub-sec'>
-							<div className='icon'>
-								<Created />
-							</div>
-							<div className='desc'>
-								<p className='label'>Created</p>
-								<p className='det'>
-									{formatDateToCustomString(login.createdAt)}
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	);
+            return;
+        }
+
+        setLogin(data[0]);
+    };
+
+    return (
+        <div id="dashboard">
+            <DashboardHeader handleAdd={handleAdd} />
+            <aside>
+                {data.map((account) => (
+                    <button
+                        key={account.password}
+                        className={`account ${
+                            account.password === login.password ? "active" : ""
+                        }`}
+                        type="button"
+                        onClick={() => setLogin(account)}
+                    >
+                        <div className="logo">
+                            <User />
+                        </div>
+                        <div className="details">
+                            <span className="title">{account.name}</span>
+                            <span>{account.url}</span>
+                        </div>
+                    </button>
+                ))}
+            </aside>
+            <main>
+                <div className="header">
+                    <h2>{login.url}</h2>
+                    <button
+                        type="button"
+                        className="secondary-btn"
+                        onClick={handleEdit}
+                    >
+                        <Edit />
+                        Edit
+                    </button>
+                    <button
+                        type="button"
+                        className="secondary-btn"
+                        onClick={handleDelete}
+                    >
+                        <Delete />
+                        Delete
+                    </button>
+                </div>
+                <div className="body">
+                    <div className="sec">
+                        <div className="icon">
+                            <User />
+                        </div>
+                        <div className="desc">
+                            <p className="label">Username</p>
+                            <p className="det">{login.username}</p>
+                        </div>
+                    </div>
+
+                    <div className="sec">
+                        <div className="icon">
+                            <Key />
+                        </div>
+                        <div className="desc">
+                            <p className="label">Password</p>
+                            <p className="det">
+                                {show ? login.password : "*************"}
+                            </p>
+                            <button
+                                type="button"
+                                className="secondary-btn"
+                                onClick={() => setShow(!show)}
+                            >
+                                {!show ? <Show /> : <Hide />}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="sec">
+                        <div className="icon">
+                            <Web />
+                        </div>
+                        <div className="desc">
+                            <p className="label">Website</p>
+                            <p className="det">{login.url}</p>
+                        </div>
+                    </div>
+
+                    <div className="sec col">
+                        <div className="sub-sec">
+                            <div className="icon">
+                                <Used />
+                            </div>
+                            <div className="desc">
+                                <p className="label">Last autofilled</p>
+                                <p className="det">
+                                    {login.lastUsed
+                                        ? formatDateToCustomString(
+                                              login.lastUsed,
+                                          )
+                                        : "Never"}
+                                </p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="sub-sec">
+                            <div className="icon">
+                                <Modified />
+                            </div>
+                            <div className="desc">
+                                <p className="label">Last modified</p>
+                                <p className="det">
+                                    {formatDateToCustomString(
+                                        login.lastModified,
+                                    )}
+                                </p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="sub-sec">
+                            <div className="icon">
+                                <Created />
+                            </div>
+                            <div className="desc">
+                                <p className="label">Created</p>
+                                <p className="det">
+                                    {formatDateToCustomString(login.createdAt)}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <DeleteLogin
+                    open={openDelete}
+                    setOpen={setOpenDelete}
+                    handleUpdate={handleUpdate}
+                    login={login}
+                />
+
+                <EditLogin
+                    open={openEdit}
+                    setOpen={setOpenEdit}
+                    handleUpdate={handleUpdate}
+                    login={login}
+                />
+
+                <AddLogin
+                    open={openAdd}
+                    setOpen={setOpenAdd}
+                    handleUpdate={handleUpdate}
+                />
+            </main>
+        </div>
+    );
 };
 
 export default Dashboard;

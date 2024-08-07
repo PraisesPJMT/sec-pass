@@ -1,178 +1,183 @@
-@import '../../index.css';
+@import "../../index.css";
 
 #dashboard .header,
 #settings .header {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	background: var(--tertiary-color);
-	margin: 0;
-	position: relative;
-	border-bottom: 2px solid var(--dark-color);
-	box-shadow: 0 1px 4px var(--secondary-color);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: var(--tertiary-color);
+    margin: 0;
+    position: relative;
+    border-bottom: 2px solid var(--dark-color);
+    box-shadow: 0 1px 4px var(--secondary-color);
 }
 
 #dashboard .header > button,
 #settings .header > button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: var(--primary-color);
-	padding: 0.2rem;
-	border-radius: 0.3rem;
-	margin: 0.4rem;
-	width: 30px;
-	height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    margin: 0.4rem;
+    width: 30px;
+    height: 30px;
 }
 
 #dashboard .header > button svg,
 #settings .header > button svg {
-	width: 80%;
-	height: 80%;
+    width: 80%;
+    height: 80%;
+}
+
+#dashboard .header button.add svg {
+    width: 25px;
+    height: 25px;
 }
 
 #dashboard .header > button svg g,
 #settings .header > button svg g {
-	fill: var(--dark-color);
+    fill: var(--dark-color);
 }
 
 #dashboard .header label {
-	display: grid;
-	grid-template-columns: 30px 1fr 30px;
-	grid-template-rows: 1fr;
-	align-items: center;
-	border: 2px solid var(--dark-color);
-	width: 100%;
-	/* height: 100%; */
-	margin: 0.4rem;
-	padding: 0.2rem;
-	border-radius: 0.25rem;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    border: 2px solid var(--dark-color);
+    width: 100%;
+    /* height: 100%; */
+    margin: 0.4rem;
+    padding: 0.2rem;
+    border-radius: 0.25rem;
 }
 
 #dashboard .header label.focus {
-	box-shadow: 0 0 10px rgba(58, 175, 169, 1);
+    box-shadow: 0 0 10px rgba(58, 175, 169, 1);
 }
 
 #dashboard .header label input {
-	width: full;
-	font-size: 1rem;
-	padding: 0.3rem 0.5rem;
-	color: var(--dark-color);
-	background: none;
-	border: none;
-	outline: none;
+    width: full;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    color: var(--dark-color);
+    background: none;
+    border: none;
+    outline: none;
 }
 
 #dashboard .header label input::placeholder {
-	color: var(--dark-color);
+    color: var(--dark-color);
 }
 
 #dashboard .header label button {
-	border-radius: 50%;
-	background: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: fit-content;
-	width: fit-content;
+    border-radius: 50%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
 }
 
 #dashboard .header label button svg {
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
 }
 
 #dashboard .header label button svg:hover {
-	background: var(--dark-light-color);
-	transform: rotate(90deg);
+    background: var(--dark-light-color);
+    transform: rotate(90deg);
 }
 
 #dashboard .header label span {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 #dashboard .header label span svg {
-	width: 25px;
-	height: 25px;
+    width: 25px;
+    height: 25px;
 }
 
 #dashboard .header label span svg {
-	fill: var(--dark-color);
+    fill: var(--dark-color);
 }
 
 #dashboard .header .menu,
 #settings .header .menu {
-	position: absolute;
-	bottom: -150px;
-	left: -100vw;
-	width: 150px;
+    position: absolute;
+    bottom: -150px;
+    left: -100vw;
+    width: 150px;
 
-	background: var(--tertiary-color);
-	padding: 0.8rem 0.5rem;
-	border-radius: 0.3rem;
+    background: var(--tertiary-color);
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.3rem;
 
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 #dashboard .header .menu.open,
 #settings .header .menu.open {
-	left: 2px;
-	border: 1px solid var(--dark-light-color);
+    left: 2px;
+    border: 1px solid var(--dark-light-color);
 }
 
 #dashboard .header .menu > button,
 #settings .header .menu > button {
-	background: none;
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	padding: 0.5rem;
-	border-radius: 0.3rem;
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
 }
 
 #dashboard .header .menu > button:hover,
 #settings .header .menu > button:hover {
-	background: var(--primary-color);
+    background: var(--primary-color);
 }
 
 #dashboard .header .menu > button svg,
 #settings .header .menu > button svg {
-	width: 15px;
-	height: 15px;
+    width: 15px;
+    height: 15px;
 }
 
 #dashboard .header .menu > button svg path,
 #settings .header .menu > button svg path {
-	fill: var(--dark-color);
+    fill: var(--dark-color);
 }
 #dashboard .header .menu > button:nth-child(1) svg path,
 #settings .header .menu > button:nth-child(1) svg path,
 #dashboard .header .menu > button:nth-child(1) svg circle,
 #settings .header .menu > button:nth-child(1) svg circle {
-	stroke: var(--dark-color) !important;
+    stroke: var(--dark-color) !important;
 }
 
 #dashboard .header .menu > button.signout svg,
 #settings .header .menu > button.signout svg {
-	transform: rotate(-90deg);
-	width: 20px;
-	height: 20px;
+    transform: rotate(-90deg);
+    width: 20px;
+    height: 20px;
 }
 
 #settings .title {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 #settings .title h1 {
-	margin: auto;
-	text-align: center;
-	font-size: 16px;
-	font-weight: 700;
+    margin: auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
 }
