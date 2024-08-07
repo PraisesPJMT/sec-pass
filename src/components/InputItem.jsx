@@ -7,6 +7,7 @@ const InputItem = ({
     type = "text",
     handleChange = () => {},
     autoFocus = false,
+    autoComplete = "off",
     required = false,
 }) => {
     return (
@@ -18,6 +19,7 @@ const InputItem = ({
                 name={name}
                 onChange={handleChange}
                 autoFocus={autoFocus}
+                autoComplete={autoComplete}
                 required={required}
             />
         </label>
@@ -29,6 +31,7 @@ InputItem.propTypes = {
     name: PropTypes.string,
     label: PropTypes.string,
     type: PropTypes.string,
+    autoComplete: PropTypes.string,
     handleChange: PropTypes.func,
     autoFocus: PropTypes.bool,
     required: PropTypes.bool,

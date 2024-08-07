@@ -28,7 +28,7 @@
     border-radius: 0.5rem;
     padding: 1rem;
     width: 350px;
-    height: 250px;
+    height: 350px;
     margin: 0 auto;
     text-align: center;
     font-size: 1.5rem;
@@ -58,4 +58,13 @@
 #delete .delete-wrap p {
     font-size: 1rem;
     font-weight: 400;
+}
+
+#delete .delete-wrap .thick {
+    margin: 0 auto;
+}
+
+#delete .delete-wrap .thick svg {
+    width: 100px;
+    height: 100px;
 }

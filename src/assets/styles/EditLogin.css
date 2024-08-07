@@ -43,6 +43,15 @@
     gap: 1rem;
 }
 
+#edit .edit-wrap .thick {
+    margin: 0 auto;
+}
+
+#edit .edit-wrap .thick svg {
+    width: 100px;
+    height: 100px;
+}
+
 #edit .edit-wrap .btn-row {
     display: flex;
     justify-content: center;

@@ -2,16 +2,18 @@ import { useState } from "react";
 
 import PropTypes from "prop-types";
 import useGuard from "../hook/useGuard";
+import Thick from "../assets/svgs/Thick";
 
 import "../assets/styles/DeleteLogin.css";
 
-const DeleteLogin = ({ login, open, setOpen }) => {
+const DeleteLogin = ({ login, open, setOpen, handleUpdate }) => {
     const [success, setSuccess] = useState(false);
 
     const { deleteLogin } = useGuard();
 
     const handleDelete = () => {
         deleteLogin(login.id);
+        handleUpdate();
         setSuccess(true);
     };
 
@@ -27,6 +29,9 @@ const DeleteLogin = ({ login, open, setOpen }) => {
                     {success ? (
                         <>
                             <h2>Account Deleted</h2>
+                            <div className="thick">
+                                <Thick />
+                            </div>
                             <p>Your account has been successfully deleted.</p>
                             <button
                                 onClick={handleCancel}
@@ -71,6 +76,7 @@ DeleteLogin.propTypes = {
     login: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     setOpen: PropTypes.func.isRequired,
+    handleUpdate: PropTypes.func.isRequired,
 };
 
 export default DeleteLogin;

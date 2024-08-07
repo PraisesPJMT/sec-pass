@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import Key from "../assets/svgs/Key";
-import Hide from "../assets/svgs/Hide";
 import Show from "../assets/svgs/Show";
+import Hide from "../assets/svgs/Hide";
 
 const PasswordItem = ({
     label = "",
@@ -12,6 +12,7 @@ const PasswordItem = ({
     handleChange = () => {},
     staticType = false,
     autoFocus = false,
+    autoComplete = "off",
     required = false,
     pass = "",
 }) => {
@@ -35,6 +36,7 @@ const PasswordItem = ({
                             name={name}
                             onChange={handleChange}
                             autoFocus={autoFocus}
+                            autoComplete={autoComplete}
                             required={required}
                         />
                     </>
@@ -58,6 +60,7 @@ PasswordItem.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
     name: PropTypes.string,
+    autoComplete: PropTypes.string,
     handleChange: PropTypes.func,
     staticType: PropTypes.bool,
     autoFocus: PropTypes.bool,

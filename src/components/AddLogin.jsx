@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import PropTypes from "prop-types";
 import InputItem from "./InputItem";
@@ -11,56 +11,47 @@ import PasswordItem from "./PasswordItem";
 
 import "../assets/styles/EditLogin.css";
 
-const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
+const AddLogin = ({ open, setOpen, handleUpdate }) => {
     const [success, setSuccess] = useState(false);
-    const [edit, setEdit] = useState({
-        name: login.name,
-        username: login.username,
-        password: login.password,
-        url: login.url,
+    const [add, setAdd] = useState({
+        name: "",
+        username: "",
+        password: "",
+        url: "",
     });
 
-    const [editErr, setEditErr] = useState("");
+    const [addErr, setAddErr] = useState("");
 
-    const { editLogin } = useGuard();
+    const { addLogin } = useGuard();
 
     const handleChange = (event) => {
-        setEditErr("");
+        setAddErr("");
         const { name, value } = event.target;
-        setEdit({ ...edit, [name]: value });
+        setAdd({ ...add, [name]: value });
     };
 
     const handleCancel = () => {
         setOpen(false);
         setSuccess(false);
-        setEditErr("");
-        setEdit({
-            name: login.name,
-            username: login.username,
-            password: login.password,
-            url: login.url,
+        setAddErr("");
+        setAdd({
+            name: "",
+            username: "",
+            password: "",
+            url: "",
         });
     };
 
-    const handleEdit = () => {
-        if (!edit.name || !edit.username || !edit.password || !edit.url) {
-            setEditErr("All fields are required.");
+    const handleadd = () => {
+        if (!add.name || !add.username || !add.password || !add.url) {
+            setAddErr("All fields are required.");
             return;
         }
 
-        editLogin(login.id, edit);
-        handleUpdate(login);
+        addLogin(add);
+        handleUpdate();
         setSuccess(true);
     };
-
-    useEffect(() => {
-        setEdit({
-            name: login.name,
-            username: login.username,
-            password: login.password,
-            url: login.url,
-        });
-    }, [login]);
 
     return (
         <>
@@ -68,11 +59,11 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                 <div className="edit-wrap">
                     {success ? (
                         <>
-                            <h2>Account Updated</h2>
+                            <h2>Account Added</h2>
                             <div className="thick">
                                 <Thick />
                             </div>
-                            <p>Your account has been successfully updated.</p>
+                            <p>Your account has been successfully added.</p>
                             <button
                                 onClick={handleCancel}
                                 type="button"
@@ -83,15 +74,15 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                         </>
                     ) : (
                         <>
-                            <h2>Edit Account</h2>
-                            <form onSubmit={handleEdit}>
+                            <h2>Add Account</h2>
+                            <form onSubmit={handleadd}>
                                 <div className="sec">
                                     <div className="icon logo">
                                         <Logo />
                                     </div>
 
                                     <InputItem
-                                        value={edit.name}
+                                        value={add.name}
                                         name="name"
                                         label="Name"
                                         handleChange={handleChange}
@@ -106,7 +97,7 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                                     </div>
 
                                     <InputItem
-                                        value={edit.username}
+                                        value={add.username}
                                         name="username"
                                         label="Username"
                                         handleChange={handleChange}
@@ -117,7 +108,7 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                                 <div className="sec">
                                     <PasswordItem
                                         label="Password"
-                                        value={edit.password}
+                                        value={add.password}
                                         name="password"
                                         handleChange={handleChange}
                                         staticType={true}
@@ -130,7 +121,7 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                                     </div>
 
                                     <InputItem
-                                        value={edit.url}
+                                        value={add.url}
                                         name="url"
                                         label="Website"
                                         handleChange={handleChange}
@@ -151,12 +142,10 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
                                         type="submit"
                                         className="primary-btn"
                                     >
-                                        UPDATE
+                                        ADD
                                     </button>
                                 </div>
-                                {editErr && (
-                                    <p className="errorMsg">{editErr}</p>
-                                )}
+                                {addErr && <p className="errorMsg">{addErr}</p>}
                             </form>
                         </>
                     )}
@@ -166,11 +155,10 @@ const EditLogin = ({ login, open, setOpen, handleUpdate }) => {
     );
 };
 
-EditLogin.propTypes = {
-    login: PropTypes.object.isRequired,
+AddLogin.propTypes = {
     open: PropTypes.bool.isRequired,
     setOpen: PropTypes.func.isRequired,
     handleUpdate: PropTypes.func.isRequired,
 };
 
-export default EditLogin;
+export default AddLogin;

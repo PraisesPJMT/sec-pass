@@ -11,6 +11,7 @@ import Used from "../assets/svgs/Used";
 import useGuard from "../hook/useGuard";
 import Delete from "../assets/svgs/Delete";
 import Created from "../assets/svgs/Created";
+import AddLogin from "../components/AddLogin";
 import Modified from "../assets/svgs/Modified";
 import EditLogin from "../components/EditLogin";
 import DeleteLogin from "../components/DeleteLogin";
@@ -24,22 +25,45 @@ const Dashboard = () => {
     const [show, setShow] = useState(false);
     const [login, setLogin] = useState(data[0]);
 
+    const [openAdd, setOpenAdd] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
 
     const handleEdit = () => {
+        setOpenAdd(false);
         setOpenEdit(true);
         setOpenDelete(false);
     };
 
     const handleDelete = () => {
-        setOpenDelete(true);
+        setOpenAdd(false);
         setOpenEdit(false);
+        setOpenDelete(true);
+    };
+
+    const handleAdd = () => {
+        setOpenAdd(true);
+        setOpenEdit(false);
+        setOpenDelete(false);
+    };
+
+    const handleUpdate = (edit = null) => {
+        if (edit) {
+            data.forEach((item) => {
+                if (item.id === edit.id) {
+                    setLogin(item);
+                }
+            });
+
+            return;
+        }
+
+        setLogin(data[0]);
     };
 
     return (
         <div id="dashboard">
-            <DashboardHeader />
+            <DashboardHeader handleAdd={handleAdd} />
             <aside>
                 {data.map((account) => (
                     <button
@@ -168,13 +192,21 @@ const Dashboard = () => {
                 <DeleteLogin
                     open={openDelete}
                     setOpen={setOpenDelete}
+                    handleUpdate={handleUpdate}
                     login={login}
                 />
 
                 <EditLogin
                     open={openEdit}
                     setOpen={setOpenEdit}
+                    handleUpdate={handleUpdate}
                     login={login}
+                />
+
+                <AddLogin
+                    open={openAdd}
+                    setOpen={setOpenAdd}
+                    handleUpdate={handleUpdate}
                 />
             </main>
         </div>

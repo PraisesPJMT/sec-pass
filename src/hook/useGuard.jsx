@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { INITIAL_DATA } from "../utils/constants";
 
 const useGuard = () => {
@@ -31,7 +32,7 @@ const useGuard = () => {
     };
 
     const signin = (pass) => {
-        if (pass === account.pass) {
+        if (account.pass && pass === account.pass) {
             account = { ...account, isSignin: true };
             updateCurrentSession();
             storeData();
@@ -53,6 +54,7 @@ const useGuard = () => {
             ...account,
             data: account.data.filter((login) => login.id !== loginId),
         };
+
         storeData();
     };
 
@@ -75,19 +77,42 @@ const useGuard = () => {
                 return data;
             }),
         };
+
+        storeData();
+    };
+
+    const addLogin = (login) => {
+        account = {
+            ...account,
+            data: [
+                ...account.data,
+                {
+                    id: uuidv4(),
+                    name: login.name,
+                    url: login.url,
+                    username: login.username,
+                    password: login.password,
+                    createdAt: new Date(),
+                    lastModified: new Date(),
+                    lastUsed: null,
+                },
+            ],
+        };
+
         storeData();
     };
 
     return {
-        isSignin: account.isSignin,
-        accounts: account.data,
-        pass: account.pass,
-        time: account.time,
         signin,
         signout,
+        addLogin,
+        editLogin,
         updatePass,
         deleteLogin,
-        editLogin,
+        pass: account.pass,
+        time: account.time,
+        accounts: account.data,
+        isSignin: account.isSignin,
     };
 };
 
