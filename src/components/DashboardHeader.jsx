@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 
+import PropTypes from "prop-types";
 import Add from "../assets/svgs/Add";
 import Logo from "../assets/svgs/Logo";
 import Menu from "../assets/svgs/Menu";
@@ -130,6 +131,10 @@ const DashboardHeader = ({ handleAdd }) => {
             </header>
         </>
     );
+};
+
+DashboardHeader.propTypes = {
+    handleAdd: PropTypes.func,
 };
 
 export default DashboardHeader;
