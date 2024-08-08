@@ -1,9 +1,30 @@
 import { v4 as uuidv4 } from "uuid";
 import { INITIAL_DATA } from "../utils/constants";
 
+import CryptoJS from "crypto-js";
+
 const useGuard = () => {
     let account =
         JSON.parse(localStorage.getItem("PASS_GUARD")) || INITIAL_DATA;
+
+    const encryptData = (data, key) => {
+        const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), key);
+        return encryptedData.toString();
+    };
+
+    const decryptData = (encryptedData, key) => {
+        const decryptedData = CryptoJS.AES.decrypt(encryptedData, key);
+        return JSON.parse(decryptedData.toString(CryptoJS.enc.Utf8));
+    };
+
+    const generateKey = (password) => {
+        const salt = "PassGuard";
+        const key = CryptoJS.PBKDF2(password, salt, {
+            keySize: 256 / 32,
+            iterations: 1000,
+        });
+        return key.toString(CryptoJS.enc.Hex);
+    };
 
     const storeData = () =>
         localStorage.setItem("PASS_GUARD", JSON.stringify(account));
@@ -109,6 +130,9 @@ const useGuard = () => {
         editLogin,
         updatePass,
         deleteLogin,
+        encryptData,
+        decryptData,
+        generateKey,
         pass: account.pass,
         time: account.time,
         accounts: account.data,
