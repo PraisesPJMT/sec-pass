@@ -5,6 +5,7 @@ const Add = () => {
             height="800px"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
+            data-testid="add-svg"
         >
             <rect x="0" fill="none" width="20" height="20" />
 
